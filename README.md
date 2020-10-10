@@ -12,7 +12,7 @@ Note: Using this Anki deck requires an Internet connection, as the videos are st
 
 If you find a mistake, or have other ideas on how to improve the deck, please don't hesitate to [open a new issue](https://github.com/blinry/anki-german-sign-language/issues)!
 
-This deck is built using the [CrowdAnki](https://github.com/Stvad/CrowdAnki) add-on.
+This deck is built using the [CrowdAnki](https://github.com/Stvad/CrowdAnki) add-on. Please note that, in order to import JSON-files properly, you might temporarily have to install an older version of Anki - mind the [Issues tab of CrowdAnki](https://github.com/Stvad/CrowdAnki/issues).
 
 ## License
 
