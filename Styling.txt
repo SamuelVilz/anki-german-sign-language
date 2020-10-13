@@ -1,0 +1,29 @@
+.card {
+ font-family: arial;
+ font-size: 20px;
+ text-align: center;
+ color: black;
+ background-color: white;
+}
+
+.container {
+ width: 400px;
+ height: 300px;
+ margin: 0 auto;
+ position: relative;
+}
+
+.cover {
+ background: linear-gradient(to right, #13496f, #144b72, #2e5e86, #42719d, #5483ab);//#50d8c8;
+ height: 80px;
+ width: 225px;
+ position: absolute;
+ top: 4px;
+ left: 4px;
+}
+
+.note {
+ font-size: 15px;
+ margin-top: 1em;
+ color: #888;
+}
