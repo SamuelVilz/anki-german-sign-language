@@ -2,7 +2,6 @@ require "open-uri"
 # $gem install nokogiri
 require "nokogiri"
 
-new_entries = []
 File.open(File.expand_path("entries", File.dirname(__FILE__)), 'w') { |file| file.write("") }
 (("A".."Z").to_a + ["0-9"]).each do |letter|
     oldcontent = ''
@@ -35,6 +34,29 @@ File.open(File.expand_path("entries", File.dirname(__FILE__)), 'w') { |file| fil
         end
         break if new_entries.empty?
     end
+end
+
+# Und hier fügen wir bislang fehlende Entries hinzu, die mit Umlauten beginnen
+umlautlinks = IO.readlines(File.expand_path('Umlaute', File.dirname(__FILE__)),chomp: true).uniq
+umlautlinks.each do |ulink|
+  URI.open(ulink) do |page2|
+      # puts ulink
+      content = page2.read
+
+      n = Nokogiri::HTML(content)
+      meaning = n.css(".so-video-details--headline").text
+      note = n.css(".so-video-details--headline + p").text
+      if note.length > 0
+        note = "\t" + note
+      end
+      variants = n.css(".sc-sidebar .so-video-list--item--thumbnail a")
+      variants.each do |v|
+          video = v["href"]
+          # puts "#{video}\t#{meaning}\t#{note}"
+          File.open(File.expand_path("entries", File.dirname(__FILE__)), 'a+') { |file| file.write("#{video}\t#{meaning}#{note}\n") }
+          STDOUT.flush
+      end
+  end
 end
 
 entries = IO.readlines(File.expand_path('entries', File.dirname(__FILE__))).uniq
