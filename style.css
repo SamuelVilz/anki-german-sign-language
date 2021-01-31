@@ -22,8 +22,24 @@
  left: 4px;
 }
 
+.note,.extra,.videoextra {
+ font-size: 13px;
+}
+
+.extra,.videoextra {
+ margin-top: 1rem;
+}
+
 .note {
- font-size: 15px;
- margin-top: 1em;
+ margin-top: 1rem;
+}
+
+.note,.commonness {
  color: #888;
+}
+
+.commonness {
+ font-size: 12px;
+ font-style: italic;
+ margin-top: 2rem;
 }
